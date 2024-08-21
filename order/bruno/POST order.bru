@@ -1,0 +1,19 @@
+meta {
+  name: POST order
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8081/api/order
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "skuCode":"Sku_1",
+    "price":1000,
+    "quantity":2
+  }
+}
