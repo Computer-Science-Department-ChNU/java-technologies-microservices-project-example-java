@@ -1,0 +1,19 @@
+meta {
+  name: POST product
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8080/api/product
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name":"Product 1",
+    "description":"Product 1 description",
+    "price": 1000
+  }
+}
