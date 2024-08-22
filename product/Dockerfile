@@ -15,12 +15,3 @@ WORKDIR /app
 COPY --from=build ./app/target/product-0.0.1.jar .
 # Set the command to run the application
 CMD ["java", "-jar", "product-0.0.1.jar"]
-
- product-service:
-    image: product_service
-    build: ./product
-    environment:
-        SPRING_DATA_MONGODB_HOST: mongo
-    ports:
-      - "8080:8080"
-    depends_on: [mongo]
