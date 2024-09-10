@@ -13,9 +13,17 @@ public class OrderService {
 
     private final OrderRepository orderRepository;
 
+    private final InventoryClient inventoryClient;
+
     public void placeOrder(OrderRequest orderRequest) {
-        var order = mapToOrder(orderRequest);
-        orderRepository.save(order);
+        boolean inStock = inventoryClient.isInStock(orderRequest.skuCode(), orderRequest.quantity());
+        if (inStock) {
+            var order = mapToOrder(orderRequest);
+            orderRepository.save(order);
+        } else {
+            throw new RuntimeException("Product with Skucode " + orderRequest.skuCode() + " and quantity "
+                    + orderRequest.quantity() + " is not in stock");
+        }
     }
 
     private static Order mapToOrder(OrderRequest orderRequest) {
