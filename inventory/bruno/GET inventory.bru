@@ -5,7 +5,12 @@ meta {
 }
 
 get {
-  url: http://localhost:8082/api/inventory?skuCode=iphone_15&quantity=100 
+  url: http://localhost:8082/api/inventory?skuCode=iphone_15&quantity=100
   body: none
   auth: none
+}
+
+params:query {
+  skuCode: iphone_15
+  quantity: 100
 }

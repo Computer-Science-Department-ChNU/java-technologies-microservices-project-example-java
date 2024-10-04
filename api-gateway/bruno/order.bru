@@ -1,0 +1,19 @@
+meta {
+  name: order
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:9000/api/order
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "skuCode":"iphone_15",
+    "price":1000,
+    "quantity":2
+  }
+}
