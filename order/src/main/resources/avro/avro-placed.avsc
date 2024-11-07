@@ -1,0 +1,8 @@
+{
+  "type": "record",
+  "name": "OrderPlacedEvent",
+  "namespace": "ua.edu.chnu.kkn.event",
+  "fields": [
+    { "name": "orderNumber", "type": "string" }
+  ]
+}
